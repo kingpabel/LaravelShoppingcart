@@ -34,11 +34,11 @@ Now all you have to do is add the service provider of the package and alias the 
 
 Add a new line to the `service providers` array:
 
-	'Gloudemans\Shoppingcart\ShoppingcartServiceProvider'
+	'Kingpabel\Shoppingcart\ShoppingcartServiceProvider'
 
 And finally add a new line to the `aliases` array:
 
-	'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
+	'Cart'            => 'Kingpabel\Shoppingcart\Facades\Cart',
 
 Now you're ready to start using the shoppingcart in your application.
 

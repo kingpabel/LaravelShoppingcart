@@ -1,4 +1,4 @@
-<?php namespace Gloudemans\Shoppingcart;
+<?php namespace Kingpabel\Shoppingcart;
 
 use Illuminate\Support\Collection;
 

@@ -1,4 +1,4 @@
-<?php namespace Gloudemans\Shoppingcart;
+<?php namespace Kingpabel\Shoppingcart;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Collection;
@@ -58,7 +58,7 @@ class Cart {
 	 * Set the current cart instance
 	 *
 	 * @param  string  $instance  Cart instance name
-	 * @return Gloudemans\Shoppingcart\Cart
+	 * @return Kingpabel\Shoppingcart\Cart
 	 */
 	public function instance($instance = null)
 	{
@@ -207,7 +207,7 @@ class Cart {
 	 * Get a row of the cart by its ID
 	 *
 	 * @param  string  $rowId  The ID of the row to fetch
-	 * @return Gloudemans\Shoppingcart\CartCollection
+	 * @return Kingpabel\Shoppingcart\CartCollection
 	 */
 	public function get($rowId)
 	{
@@ -219,7 +219,7 @@ class Cart {
 	/**
 	 * Get the cart content
 	 *
-	 * @return Gloudemans\Shoppingcart\CartRowCollection
+	 * @return Kingpabel\Shoppingcart\CartRowCollection
 	 */
 	public function content()
 	{
@@ -388,7 +388,7 @@ class Cart {
 	/**
 	 * Update the cart
 	 *
-	 * @param  Gloudemans\Shoppingcart\CartCollection  $cart  The new cart content
+	 * @param  Kingpabel\Shoppingcart\CartCollection  $cart  The new cart content
 	 * @return void
 	 */
 	protected function updateCart($cart)
@@ -399,7 +399,7 @@ class Cart {
 	/**
 	 * Get the carts content, if there is no cart content set yet, return a new empty Collection
 	 *
-	 * @return Gloudemans\Shoppingcart\CartCollection
+	 * @return Kingpabel\Shoppingcart\CartCollection
 	 */
 	protected function getContent()
 	{
@@ -423,7 +423,7 @@ class Cart {
 	 *
 	 * @param  string   $rowId  The ID of the row to update
 	 * @param  integer  $qty    The quantity to add to the row
-	 * @return Gloudemans\Shoppingcart\CartCollection
+	 * @return Kingpabel\Shoppingcart\CartCollection
 	 */
 	protected function updateRow($rowId, $attributes)
 	{
@@ -463,7 +463,7 @@ class Cart {
 	 * @param  int     $qty      Item qty to add to the cart
 	 * @param  float   $price    Price of one item
 	 * @param  array   $options  Array of additional options, such as 'size' or 'color'
-	 * @return Gloudemans\Shoppingcart\CartCollection
+	 * @return Kingpabel\Shoppingcart\CartCollection
 	 */
 	protected function createRow($rowId, $id, $name, $qty, $price, $options)
 	{
@@ -489,7 +489,7 @@ class Cart {
 	 *
 	 * @param  string  $rowId  The ID of the row
 	 * @param  int     $qty    The qty to add
-	 * @return Gloudemans\Shoppingcart\CartCollection
+	 * @return Kingpabel\Shoppingcart\CartCollection
 	 */
 	protected function updateQty($rowId, $qty)
 	{
@@ -506,7 +506,7 @@ class Cart {
 	 *
 	 * @param  string  $rowId       The ID of the row
 	 * @param  array   $attributes  An array of attributes to update
-	 * @return Gloudemans\Shoppingcart\CartCollection
+	 * @return Kingpabel\Shoppingcart\CartCollection
 	 */
 	protected function updateAttribute($rowId, $attributes)
 	{

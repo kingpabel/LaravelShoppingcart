@@ -1,3 +1,3 @@
-<?php namespace Gloudemans\Shoppingcart\Exceptions;
+<?php namespace Kingpabel\Shoppingcart\Exceptions;
 
 class ShoppingcartUnknownModelException extends \Exception {}
