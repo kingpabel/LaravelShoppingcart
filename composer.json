@@ -1,12 +1,12 @@
 {
-    "name": "gloudemans/shoppingcart",
+    "name": "kingpabel/shoppingcart",
     "description": "Laravel 5 Shoppingcart",
     "keywords": ["laravel", "shoppingcart"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Rob Gloudemans",
-            "email": "Rob_Gloudemans@hotmail.com"
+            "name": "Imtiaz Pabel",
+            "email": "ippabel@gmail.com"
         }
     ],
     "require": {
