@@ -13,7 +13,7 @@ Install the package through [Composer](http://getcomposer.org/). Edit your proje
 ```php
 "require": {
 	"laravel/framework": "4.2.*",
-	"gloudemans/shoppingcart": "~1.2"
+	"kingpabel/shoppingcart": "~1.2"
 }
 ```
 
@@ -22,7 +22,7 @@ Install the package through [Composer](http://getcomposer.org/). Edit your proje
 ```php
 "require": {
 	"laravel/framework": "5.0.*",
-	"gloudemans/shoppingcart": "~1.3"
+	"kingpabel/shoppingcart": "~1.3"
 }
 ```
 
