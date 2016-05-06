@@ -524,4 +524,30 @@ class Cart {
 		return is_array(head($array));
 	}
 
+	/**
+	 * @param $amount
+	 * @return bool
+	 */
+	public function setCustomDiscount($amount)
+	{
+		$cart = $this->getContent();
+
+		if (!$cart->isEmpty() && is_numeric($amount)) {
+			$cart->custom_discount = $amount;
+			$this->setSubTotal();
+			$this->updateCart($cart);
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function customDiscount()
+	{
+		return $this->getContent()->custom_discount;
+	}
+
 }
