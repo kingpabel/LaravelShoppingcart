@@ -97,28 +97,25 @@ class Cart {
 	 * @param float  	    $price    Price of one item
 	 * @param array  	    $options  Array of additional options, such as 'size' or 'color'
 	 */
-	public function add($id, $name = null, $qty = null, $price = null, array $options = [])
+	public function add($id, $name = null, $qty = null, $price = null, $discount = null, array $options = [])
 	{
 		// If the first parameter is an array we need to call the add() function again
-		if(is_array($id))
-		{
+		if (is_array($id)) {
 			// And if it's not only an array, but a multidimensional array, we need to
 			// recursively call the add function
-			if($this->is_multi($id))
-			{
+			if ($this->is_multi($id)) {
 				// Fire the cart.batch event
 				$this->event->fire('cart.batch', $id);
 
-				foreach($id as $item)
-				{
+				foreach ($id as $item) {
 					$options = array_get($item, 'options', []);
-					$this->addRow($item['id'], $item['name'], $item['qty'], $item['price'], $options);
+					$this->addRow($item['id'], $item['name'], $item['qty'], $item['price'], $this->discountResolve($item), $options);
 				}
 
 				// Fire the cart.batched event
 				$this->event->fire('cart.batched', $id);
 
-				return;
+				return null;
 			}
 
 			$options = array_get($id, 'options', []);
@@ -126,7 +123,7 @@ class Cart {
 			// Fire the cart.add event
 			$this->event->fire('cart.add', array_merge($id, ['options' => $options]));
 
-			$result = $this->addRow($id['id'], $id['name'], $id['qty'], $id['price'], $options);
+			$result = $this->addRow($id['id'], $id['name'], $id['qty'], $id['price'], $this->discountResolve($id), $options);
 
 			// Fire the cart.added event
 			$this->event->fire('cart.added', array_merge($id, ['options' => $options]));
@@ -137,7 +134,7 @@ class Cart {
 		// Fire the cart.add event
 		$this->event->fire('cart.add', compact('id', 'name', 'qty', 'price', 'options'));
 
-		$result = $this->addRow($id, $name, $qty, $price, $options);
+		$result = $this->addRow($id, $name, $qty, $price, $discount, $options);
 
 		// Fire the cart.added event
 		$this->event->fire('cart.added', compact('id', 'name', 'qty', 'price', 'options'));
