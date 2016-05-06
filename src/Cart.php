@@ -312,38 +312,39 @@ class Cart {
 	 * @param float   $price    Price of one item
 	 * @param array   $options  Array of additional options, such as 'size' or 'color'
 	 */
-	protected function addRow($id, $name, $qty, $price, array $options = [])
+	protected function addRow($id, $name, $qty, $price, $discount, array $options = [])
 	{
-		if(empty($id) || empty($name) || empty($qty) || ! isset($price))
-		{
+		if (empty($id) || empty($name) || empty($qty) || !isset($price)) {
 			throw new Exceptions\ShoppingcartInvalidItemException;
 		}
 
-		if( ! is_numeric($qty))
-		{
+		if (!is_numeric($qty)) {
 			throw new Exceptions\ShoppingcartInvalidQtyException;
 		}
 
-		if( ! is_numeric($price))
-		{
+		if (!is_numeric($price)) {
+			throw new Exceptions\ShoppingcartInvalidPriceException;
+		}
+
+		if (!is_numeric($discount)) {
 			throw new Exceptions\ShoppingcartInvalidPriceException;
 		}
 
 		$cart = $this->getContent();
-
 		$rowId = $this->generateRowId($id, $options);
 
-		if($cart->has($rowId))
-		{
+		if ($cart->has($rowId)) {
 			$row = $cart->get($rowId);
 			$cart = $this->updateRow($rowId, ['qty' => $row->qty + $qty]);
-		}
-		else
-		{
-			$cart = $this->createRow($rowId, $id, $name, $qty, $price, $options);
+		} else {
+			$cart = $this->createRow($rowId, $id, $name, $qty, $price, $discount, $options);
 		}
 
-		return $this->updateCart($cart);
+		$this->updateCart($cart);
+		$this->setTotal();
+		$this->setSubTotal();
+		$this->setDiscount();
+		return null;
 	}
 
 	/**
