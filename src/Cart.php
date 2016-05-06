@@ -452,7 +452,7 @@ class Cart {
 	 * @param  array   $options  Array of additional options, such as 'size' or 'color'
 	 * @return Kingpabel\Shoppingcart\CartCollection
 	 */
-	protected function createRow($rowId, $id, $name, $qty, $price, $options)
+	protected function createRow($rowId, $id, $name, $qty, $price, $discount, $options)
 	{
 		$cart = $this->getContent();
 
@@ -462,8 +462,11 @@ class Cart {
 			'name' => $name,
 			'qty' => $qty,
 			'price' => $price,
+			'discount' => $discount,
 			'options' => new CartRowOptionsCollection($options),
-			'subtotal' => $qty * $price
+			'total' => $qty * $price,
+			'total_discount' => $qty * $discount,
+			'subtotal' => ($qty * $price) - ($qty * $discount),
 		], $this->associatedModel, $this->associatedModelNamespace);
 
 		$cart->put($rowId, $newRow);
