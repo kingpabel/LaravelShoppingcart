@@ -584,4 +584,34 @@ class Cart {
 		return $this->getContent()->total;
 	}
 
+	/**
+	 * @return mixed
+	 */
+	protected function setSubTotal()
+	{
+		$cart = $this->getContent();
+
+		if ($cart->isEmpty()) {
+			return false;
+		}
+
+		$subtotal = 0;
+		foreach ($cart AS $row) {
+			$subtotal += $row->subtotal;
+		}
+
+		$cart->subtotal = $subtotal - $this->customDiscount();
+		$this->updateCart($cart);
+
+		return true;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function subtotal()
+	{
+		return $this->getContent()->subtotal;
+	}
+
 }
