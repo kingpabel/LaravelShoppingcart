@@ -418,25 +418,26 @@ class Cart {
 
 		$row = $cart->get($rowId);
 
-		foreach($attributes as $key => $value)
-		{
-			if($key == 'options')
-			{
+		foreach ($attributes as $key => $value) {
+			if ($key == 'options') {
 				$options = $row->options->merge($value);
 				$row->put($key, $options);
-			}
-			else
-			{
+			} else {
 				$row->put($key, $value);
 			}
 		}
 
-		if( ! is_null(array_keys($attributes, ['qty', 'price'])))
-		{
-			$row->put('subtotal', $row->qty * $row->price);
+		if (!is_null(array_keys($attributes, ['qty', 'price']))) {
+			$row->put('total', $row->qty * $row->price);
+			$row->put('total_discount', $row->qty * $row->discount);
+			$row->put('subtotal', ($row->qty * $row->price) - ($row->qty * $row->discount));
 		}
 
 		$cart->put($rowId, $row);
+
+		$this->setTotal();
+		$this->setSubTotal();
+		$this->setDiscount();
 
 		return $cart;
 	}
