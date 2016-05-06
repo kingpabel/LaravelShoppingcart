@@ -146,6 +146,18 @@ class Cart {
 	}
 
 	/**
+	 * @param $data
+	 * @return null
+	 */
+	public function discountResolve($data)
+	{
+		if(isset($data['discount']))
+			return $data['discount'];
+		else
+			return null;
+	}
+
+	/**
 	 * Update the quantity of one row of the cart
 	 *
 	 * @param  string         $rowId       The rowid of the item you want to update
