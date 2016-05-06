@@ -60,26 +60,27 @@ The shoppingcart gives you the following methods to use:
 **Cart::add()**
 
 ```php
-/**
- * Add a row to the cart
- *
- * @param string|Array $id      Unique ID of the item|Item formated as array|Array of items
- * @param string       $name    Name of the item
- * @param int          $qty     Item qty to add to the cart
- * @param float        $price   Price of one item
- * @param Array        $options Array of additional options, such as 'size' or 'color'
- */
+ /**
+    * Add a row to the cart
+    *
+    * @param string|array $id   Unique ID of the item|Item formated as array|Array of items
+    * @param string       $name Name of the item
+    * @param int          $qty Item qty to add to the cart
+    * @param float        $price Price of one item
+    * @param array        $options Array of additional options, such as 'size' or 'color'
+    */
+ 
 
 // Basic form
-Cart::add('293ad', 'Product 1', 1, 9.99, array('size' => 'large'));
+Cart::add('293ad', 'Product 1', 1, 9.99, 0.00, array('size' => 'large'));
 
 // Array form
-Cart::add(array('id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 9.99, 'options' => array('size' => 'large')));
+Cart::add(array('id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 9.99, 'discount' => 0.00, 'options' => array('size' => 'large')));
 
 // Batch method
 Cart::add(array(
-  array('id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00),
-  array('id' => '4832k', 'name' => 'Product 2', 'qty' => 1, 'price' => 10.00, 'options' => array('size' => 'large'))
+  array('id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00, 'discount' => 0.00,),
+  array('id' => '4832k', 'name' => 'Product 2', 'qty' => 1, 'price' => 10.00,, 'discount' => 0.00, 'options' => array('size' => 'large'))
 ));
 ```
 
@@ -160,12 +161,55 @@ Cart::destroy();
 
 ```php
 /**
- * Get the price total
  *
  * @return float
  */
 
 Cart::total();
+```
+
+**Cart::subtotal()**
+
+```php
+/**
+ *
+ * @return float
+ */
+
+Cart::subtotal();
+```
+
+**Cart::discount()**
+
+```php
+/**
+ *
+ * @return float
+ */
+
+Cart::discount();
+```
+
+**Cart::setCustomDiscount(5.00)**
+
+```php
+/**
+ * @param $amount
+ * @return bool
+ */
+
+Cart::setCustomDiscount(5.00);
+```
+
+**Cart::customDiscount()**
+
+```php
+/**
+ *
+ * @return float
+ */
+
+Cart::setCustomDiscount();
 ```
 
 **Cart::count()**
