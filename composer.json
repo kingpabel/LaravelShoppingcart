@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Kingpabel\\Shoppingcart": "src/"
+            "Kingpabel\\Shoppingcart\\": "src/"
         }
     },
     "minimum-stability": "dev"
