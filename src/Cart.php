@@ -247,29 +247,6 @@ class Cart {
 	}
 
 	/**
-	 * Get the price total
-	 *
-	 * @return float
-	 */
-	public function total()
-	{
-		$total = 0;
-		$cart = $this->getContent();
-
-		if(empty($cart))
-		{
-			return $total;
-		}
-
-		foreach($cart AS $row)
-		{
-			$total += $row->subtotal;
-		}
-
-		return $total;
-	}
-
-	/**
 	 * Get the number of items in the cart
 	 *
 	 * @param  boolean  $totalItems  Get all the items (when false, will return the number of rows)
@@ -575,6 +552,36 @@ class Cart {
 	public function discount()
 	{
 		return $this->getContent()->discount;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	protected function setTotal()
+	{
+		$cart = $this->getContent();
+
+		if ($cart->isEmpty()) {
+			return false;
+		}
+
+		$total = 0;
+		foreach ($cart AS $row) {
+			$total += $row->total;
+		}
+
+		$cart->total = $total;
+		$this->updateCart($cart);
+
+		return true;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function total()
+	{
+		return $this->getContent()->total;
 	}
 
 }
