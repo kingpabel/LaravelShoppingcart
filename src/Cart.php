@@ -561,6 +561,9 @@ class Cart
         return true;
     }
 
+    /**
+     * @return mixed
+     */
     public function discount()
     {
         return $this->getContent()->discount;
