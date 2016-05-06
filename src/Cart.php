@@ -550,4 +550,31 @@ class Cart {
 		return $this->getContent()->custom_discount;
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function setDiscount()
+	{
+		$cart = $this->getContent();
+
+		if ($cart->isEmpty()) {
+			return false;
+		}
+
+		$discount = 0;
+		foreach ($cart AS $row) {
+			$discount += $row->total_discount;
+		}
+
+		$cart->discount = $discount;
+		$this->updateCart($cart);
+
+		return true;
+	}
+
+	public function discount()
+	{
+		return $this->getContent()->discount;
+	}
+
 }
