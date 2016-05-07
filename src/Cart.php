@@ -517,7 +517,7 @@ class Cart
      * @param $amount
      * @return bool
      */
-    public function setCustomDiscount($amount)
+    protected function setCustomDiscount($amount)
     {
         $cart = $this->getContent();
 
