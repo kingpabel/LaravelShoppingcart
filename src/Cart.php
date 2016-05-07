@@ -522,7 +522,7 @@ class Cart
         $cart = $this->getContent();
 
         if (!$cart->isEmpty() && is_numeric($amount)) {
-            $cart->custom_discount = $amount;
+            $cart->custom_discount = floatval($amount);
             $this->setSubTotal();
             $this->updateCart($cart);
             return true;
@@ -555,7 +555,7 @@ class Cart
             $discount += $row->total_discount;
         }
 
-        $cart->discount = $discount;
+        $cart->discount = floatval($discount);
         $this->updateCart($cart);
 
         return true;
@@ -585,7 +585,7 @@ class Cart
             $total += $row->total;
         }
 
-        $cart->total = $total;
+        $cart->total = floatval($total);
         $this->updateCart($cart);
 
         return true;
@@ -615,7 +615,7 @@ class Cart
             $subtotal += $row->subtotal;
         }
 
-        $cart->subtotal = $subtotal - $this->customDiscount();
+        $cart->subtotal = floatval($subtotal - $this->customDiscount());
         $this->updateCart($cart);
 
         return true;
