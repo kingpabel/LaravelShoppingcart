@@ -12,8 +12,7 @@ Install the package through [Composer](http://getcomposer.org/). Edit your proje
 
 ```php
 "require": {
-	"laravel/framework": "5.0.*",
-	"kingpabel/shoppingcart": "~1.4"
+    "kingpabel/shoppingcart": "~1.4"
 }
 ```
 
