@@ -1,6 +1,6 @@
 ## LaravelShoppingcart
-[![Build Status](https://travis-ci.org/Crinsane/LaravelShoppingcart.png?branch=master)](https://travis-ci.org/Crinsane/LaravelShoppingcart)
-[![Total Downloads](https://poser.pugx.org/gloudemans/shoppingcart/downloads.png)](https://packagist.org/packages/gloudemans/shoppingcart)
+[![Build Status](https://travis-ci.org/kingpabel/LaravelShoppingcart.svg?branch=master)](https://travis-ci.org/kingpabel/LaravelShoppingcart)
+[![Total Downloads](https://poser.pugx.org/gloudemans/shoppingcart/downloads.png)](https://packagist.org/packages/kingpabel/shoppingcart)
 
 A simple shoppingcart implementation for Laravel 4.
 
@@ -8,21 +8,12 @@ A simple shoppingcart implementation for Laravel 4.
 
 Install the package through [Composer](http://getcomposer.org/). Edit your project's `composer.json` file by adding:
 
-### Laravel 4.2 and below
-
-```php
-"require": {
-	"laravel/framework": "4.2.*",
-	"kingpabel/shoppingcart": "~1.2"
-}
-```
-
-### Laravel 5
+### From Laravel 4.2 to Laravel 5.2
 
 ```php
 "require": {
 	"laravel/framework": "5.0.*",
-	"kingpabel/shoppingcart": "~1.3"
+	"kingpabel/shoppingcart": "~1.4"
 }
 ```
 
