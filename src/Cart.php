@@ -378,7 +378,7 @@ class Cart
     protected function updateCart($cart)
     {
         $this->session->put($this->getInstance(), $cart);
-        \Session::save();
+        $this->session->save();
         return null;
     }
 
