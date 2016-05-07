@@ -161,6 +161,7 @@ Cart::destroy();
 
 ```php
 /**
+ * Total amount of cart
  *
  * @return float
  */
@@ -172,6 +173,7 @@ Cart::total();
 
 ```php
 /**
+ * Sub total amount of cart
  *
  * @return float
  */
@@ -183,6 +185,7 @@ Cart::subtotal();
 
 ```php
 /**
+ * Discount of cart
  *
  * @return float
  */
@@ -205,11 +208,12 @@ Cart::setCustomDiscount(5.00);
 
 ```php
 /**
+ * Custom discount of cart
  *
  * @return float
  */
 
-Cart::setCustomDiscount();
+Cart::customDiscount();
 ```
 
 **Cart::count()**
